@@ -12,6 +12,17 @@ module.exports = {
   rules: {
     'react-hooks/rules-of-hooks': 'error',
   },
-  settings: {},
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      typescript: {
+        alwaysTryTypes: true,
+        project: './tsconfig.json',
+      },
+    },
+    'import/core-modules': ['prop-types'],
+  },
   overrides: [],
 }

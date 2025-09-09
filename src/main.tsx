@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 import './index.css'
 import App from './App'
+import ThemeCustomization from './themes'
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 
@@ -13,8 +14,18 @@ if (process.env.NODE_ENV === 'development') {
       worker.start()
     })
     // Launched mock server, and then start client React app
-    .then(() => root.render(<App />))
+    .then(() =>
+      root.render(
+        <ThemeCustomization>
+          <App />
+        </ThemeCustomization>,
+      ),
+    )
 } else {
   // Production
-  root.render(<App />)
+  root.render(
+    <ThemeCustomization>
+      <App />
+    </ThemeCustomization>,
+  )
 }
